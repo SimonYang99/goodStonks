@@ -8,13 +8,8 @@
     "@testing-library/user-event": "^7.1.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-<<<<<<< HEAD
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3"
-=======
-    "react-scripts": "3.4.3",
-    "yarn": "^1.22.10"
->>>>>>> 8326c047bb548e1eddc3ce5424ba4f09ce8f65cd
   },
   "scripts": {
     "start": "react-scripts start",
