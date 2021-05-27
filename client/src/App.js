@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
 
 const App = () => {
@@ -10,10 +11,28 @@ const App = () => {
   }, [])
 
   return(
-    <div>
+    <BrowserRouter>
       <h1>{message}</h1>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/test" component={NotHome} />
+      </Switch>  
+    </BrowserRouter>
+  )
+}
 
-      
+const Home = () => {
+  return(
+    <div>
+      Home
+    </div>
+  )
+}
+
+const NotHome = () => {
+  return(
+    <div>
+      notHome
     </div>
   )
 }
