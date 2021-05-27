@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 // import * as ReactBootstrap from "react-bootstrap";
-import { Form, Col, Button, Card } from "react-bootstrap";
+// import { Form, Col, Button, Card } from "react-bootstrap";
 
 const Login = () => {
   const [message, setMessage] = useState("no message :(");
@@ -45,7 +45,7 @@ const Login = () => {
                     </div>
                     <div class="row mt-auto">
                         <div class="col">
-                            <button class="btn btn-primary btn-floating btn-lg btn-block m-t-30">Register</button>
+                            <button class="btn btn-warning btn-floating btn-lg btn-block m-t-30">Register</button>
                         </div>
                     </div>
                 </div>
