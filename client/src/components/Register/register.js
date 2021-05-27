@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 // import * as ReactBootstrap from "react-bootstrap";
 // import { Form, Col, Button, Card } from "react-bootstrap";
 
@@ -55,7 +56,8 @@ const Register = () => {
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary btn-floating btn-lg btn-block m-t-30">Create Your Account</button>
-                <button type="" class="btn btn-warning btn-floating btn-lg btn-block m-t-30">Sign In</button>
+                <Link class="btn btn-warning btn-floating btn-lg btn-block m-t-30" to="/login">Sign In</Link>
+                {/* <button type="" class="btn btn-warning btn-floating btn-lg btn-block m-t-30">Sign In</button> */}
             </div>
     </div>
   );
