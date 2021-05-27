@@ -53,6 +53,7 @@ const Login = () => {
                 </div>
             </div>
         </div>
+            <Link class="mb-4 ml-4" to="/">Back to Home Page</Link>
         </div>
   );
 }
