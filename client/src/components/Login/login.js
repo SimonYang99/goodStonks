@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 // import * as ReactBootstrap from "react-bootstrap";
 // import { Form, Col, Button, Card } from "react-bootstrap";
 
@@ -45,7 +46,8 @@ const Login = () => {
                     </div>
                     <div class="row mt-auto">
                         <div class="col">
-                            <button class="btn btn-warning btn-floating btn-lg btn-block m-t-30">Register</button>
+                            {/* <button class="btn btn-warning btn-floating btn-lg btn-block m-t-30">Register</button> */}
+                            <Link class="btn btn-warning btn-floating btn-lg btn-block m-t-30" to="/register">Register</Link>
                         </div>
                     </div>
                 </div>
