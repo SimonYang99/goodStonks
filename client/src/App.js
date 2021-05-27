@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Login from './components/Login/login';
 
 const App = () => {
   const [message, setMessage] = useState("no message :(");
@@ -16,6 +18,7 @@ const App = () => {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/test" component={NotHome} />
+        <Route path="/login" component={Login} />
       </Switch>  
     </BrowserRouter>
   )
