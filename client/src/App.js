@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Login from './components/Login/login';
 
 const App = () => {
   const [message, setMessage] = useState("no message :(");
@@ -10,11 +12,8 @@ const App = () => {
   }, [])
 
   return(
-    <div>
-      <h1>{message}</h1>
-
-      
-    </div>
+      // {{message}}
+      <Login />
   )
 }
 
