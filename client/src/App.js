@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Login from './components/Login/login';
+import Register from './components/Register/register'
+import Home from './components/Home/home'
 
 const App = () => {
   const [message, setMessage] = useState("no message :(");
@@ -10,10 +15,22 @@ const App = () => {
   }, [])
 
   return(
-    <div>
-      <h1>{message}</h1>
+    <BrowserRouter>
+      {/* <h1>{message}</h1> */}
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/test" component={NotHome} />
+        <Route path="/login" component={Login} />
+        <Route path="/register" component={Register} />
+      </Switch>  
+    </BrowserRouter>
+  )
+}
 
-      
+const NotHome = () => {
+  return(
+    <div>
+      notHome
     </div>
   )
 }

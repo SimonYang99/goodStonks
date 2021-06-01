@@ -1,10 +1,11 @@
 {
-  "name": "funSite",
+  "name": "goodstonks",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "yarn": "^1.22.10"
   },
   "scripts": {
     "start": "node index.js",
