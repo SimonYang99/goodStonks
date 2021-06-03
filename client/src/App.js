@@ -6,6 +6,7 @@ import Login from './components/Login/login';
 import Register from './components/Register/register'
 import Main from './components/Main/main';
 import Header from './components/Header/header';
+import Profile from './components/Profile/profile';
 
 const App = () => {
   const [message, setMessage] = useState("no message :(");
@@ -24,6 +25,7 @@ const App = () => {
         <Route path="/test" component={NotHome} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
+        <Route path="/profile" component={Profile} />
       </Switch>  
     </BrowserRouter>
   )
