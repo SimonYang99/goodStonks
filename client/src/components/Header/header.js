@@ -15,6 +15,7 @@ const Header = () => {
       <Nav className="ml-auto">
         <Link class="btn btn-primary mr-2" to="/login">Login</Link>
         <Link class="btn btn-warning mr-2" to="/register">Register</Link>
+        <Link class="btn btn-success mr-2" to="/profile">Profile</Link>
       </Nav>
     </Navbar>
   );
