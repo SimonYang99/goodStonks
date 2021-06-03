@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Post from './post';
-import HotStocksList from '../Home/HotStocksList/hotStocksList';
+import HotStocksList from '../HotStocksList/hotStocksList';
 
 const style = {
   postList: {

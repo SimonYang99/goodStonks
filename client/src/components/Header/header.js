@@ -1,5 +1,6 @@
 import React from 'react';
 import {Navbar, Nav, Button} from 'react-bootstrap';
+import { Link } from "react-router-dom";
 
 const style = {
   Buttons: {
@@ -10,10 +11,10 @@ const style = {
 const Header = () => {
   return (
     <Navbar fixed="top" bg="light" className="row">
-      <Navbar.Brand className="col" href="#">GoodStonks</Navbar.Brand>
+      <Navbar.Brand className="col" href="/">GoodStonks</Navbar.Brand>
       <Nav className="ml-auto">
-        <Button style={style.Buttons}>Sign Up</Button>
-        <Button style={style.Buttons}>Login</Button>
+        <Link class="btn btn-primary mr-2" to="/login">Login</Link>
+        <Link class="btn btn-warning mr-2" to="/register">Register</Link>
       </Nav>
     </Navbar>
   );

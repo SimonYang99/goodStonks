@@ -4,7 +4,6 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './components/Login/login';
 import Register from './components/Register/register'
-import Home from './components/Home/home'
 import Main from './components/Main/main';
 import Header from './components/Header/header';
 
@@ -22,7 +21,6 @@ const App = () => {
       <Header />
       <Switch>
         <Route exact path="/" component={Main} />
-        <Route path="/main" component={Home} />
         <Route path="/test" component={NotHome} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />

@@ -12,8 +12,8 @@ const Register = () => {
   }, [])
 
   return(
-      
-    <div class="card mx-auto" style={{width: '50%'}}>
+    <div style={{marginTop:'4em'}} className="container-fluid">
+        <div class="card mx-auto" style={{width: '50%'}}>
          <div class="card-body p-40">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -60,6 +60,7 @@ const Register = () => {
                 {/* <button type="" class="btn btn-warning btn-floating btn-lg btn-block m-t-30">Sign In</button> */}
             </div>
             <Link class="mb-4 ml-4" to="/">Back to Home Page</Link>
+    </div>
     </div>
   );
 }
