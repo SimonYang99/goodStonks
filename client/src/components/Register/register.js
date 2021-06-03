@@ -56,7 +56,7 @@ const Register = () => {
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary btn-floating btn-lg btn-block m-t-30">Create Your Account</button>
-                <Link class="btn btn-warning btn-floating btn-lg btn-block m-t-30" to="/login">Sign In</Link>
+                <Link class="btn btn-warning btn-floating btn-lg btn-block m-t-30" to="/login">Login</Link>
                 {/* <button type="" class="btn btn-warning btn-floating btn-lg btn-block m-t-30">Sign In</button> */}
             </div>
             <Link class="mb-4 ml-4" to="/">Back to Home Page</Link>

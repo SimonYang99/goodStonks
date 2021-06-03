@@ -36,12 +36,13 @@ const Login = () => {
                         <label class="form-check-label" for="Check">Remember Me</label>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-floating btn-lg btn-block m-t-30">Sign In</button>
+                    <button type="submit" class="btn btn-primary btn-floating btn-lg btn-block m-t-30">Login</button>
                 </div>
                 <div class="col-lg-5 text-center d-flex flex-column">
                     <div>
-                        <p class="text-justify mt-4">
+                        <p class="mt-4">
                             <strong>Do not have an account? </strong>
+                            <br></br>
                             Please spend a few seconds to create your account and enjoy everything that GoodStonks has to offer.
                         </p>                        
                     </div>
