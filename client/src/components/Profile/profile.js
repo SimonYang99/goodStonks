@@ -30,8 +30,8 @@ const Profile = () => {
             <div class="row">
                 <div class="mx-auto">
                     <ProfileImage
-                        camera
                         returnImage={getImages}
+                        uploadBtnProps={{ variant: "contained", label: "Upload"}}
                     />
                 </div>
             </div>
