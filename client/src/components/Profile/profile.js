@@ -18,8 +18,9 @@ const Profile = () => {
 
     const getImages = (base64Image, fileImage) => {
 		// Do something with the selected image)
-		console.log(base64Image);
-		console.log(fileImage);
+		// console.log(base64Image);
+		// console.log(fileImage);
+        setprofilePic(base64Image)
 	};
 
   return(
@@ -30,8 +31,8 @@ const Profile = () => {
             <div class="row">
                 <div class="mx-auto">
                     <ProfileImage
-                        camera
                         returnImage={getImages}
+                        uploadBtnProps={{ variant: "contained", label: "Upload"}}
                     />
                 </div>
             </div>
