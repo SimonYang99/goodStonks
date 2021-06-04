@@ -4,7 +4,9 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './components/Login/login';
 import Register from './components/Register/register'
-import Home from './components/Home/home'
+import Main from './components/Main/main';
+import Header from './components/Header/header';
+import Profile from './components/Profile/profile';
 
 const App = () => {
   const [message, setMessage] = useState("no message :(");
@@ -17,11 +19,13 @@ const App = () => {
   return(
     <BrowserRouter>
       {/* <h1>{message}</h1> */}
+      <Header />
       <Switch>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/" component={Main} />
         <Route path="/test" component={NotHome} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
+        <Route path="/profile" component={Profile} />
       </Switch>  
     </BrowserRouter>
   )
