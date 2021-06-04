@@ -29,42 +29,42 @@ const Register = () => {
                         <div class="row mt-4">
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="InputUserName" placeholder="Username"
+                                    <input type="text" name="username" class="form-control" id="InputUserName" placeholder="Username"
                                         value={username}
                                         onChange={e => setUsername(e.target.value)} />
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="InputFirstName" placeholder="First Name"
+                                    <input type="text" name="fName" class="form-control" id="InputFirstName" placeholder="First Name"
                                         value={fName}
                                         onChange={e => setFName(e.target.value)} />
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="InputLastName" placeholder="Last Name"
+                                    <input type="text" name="lName" class="form-control" id="InputLastName" placeholder="Last Name"
                                         value={lName}
                                         onChange={e => setLName(e.target.value)} />
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control" id="InputEmail" placeholder="Email"
+                            <input type="email" name="email" class="form-control" id="InputEmail" placeholder="Email"
                                 value={email}
                                 onChange={e => setEmail(e.target.value)} />
                         </div>
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <input type="password" class="form-control" id="InputPassword1" placeholder="Password"
+                                    <input type="password" name="password" class="form-control" id="InputPassword1" placeholder="Password"
                                         value={password}
                                         onChange={e => setPassword(e.target.value)} />
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <input type="password" class="form-control" id="InputPassword2" placeholder="Confirm Password"
+                                    <input type="password" name="cPassword" class="form-control" id="InputPassword2" placeholder="Confirm Password"
                                         value={cPassword}
                                         onChange={e => setCPassword(e.target.value)} />
                                 </div>
@@ -73,7 +73,7 @@ const Register = () => {
                         <div class="form-group">
                             <div class="checkbox m-t-10">
                                 <div class="custom-control custom-checkbox checkbox-primary form-check">
-                                    <input type="checkbox" class="form-check-input" id="Check" />
+                                    <input type="checkbox" name="checkbox" class="form-check-input" id="Check" />
                                     <label class="form-check-label" for="Check">I accept the Terms of Service</label>
                                 </div>
                             </div>

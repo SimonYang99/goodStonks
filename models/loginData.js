@@ -10,8 +10,12 @@ function addUser(newUser) {
     db.execute(query);
 }
 
+function loginUser(userData) {
+    return db.execute("SELECT * FROM users WHERE username = '" 
+    + userData.username + "' AND password = '" + userData.password + "';")
+}
 
 module.exports = {
     addUser,
-
+    loginUser,
 }
