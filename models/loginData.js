@@ -1,10 +1,17 @@
 const db = require("../util/database");
 
-async function registerUser(newUser) {
+function addUser(newUser) {
+    let query = "INSERT INTO users(username, firstname, lastname, email, password) VALUES('"
+     + newUser.username + "', '"
+     + newUser.fName + "', '"
+     + newUser.lName + "', '"
+     + newUser.email + "');";
 
-    if(!newUser.password == newUser.confirmPassword) {
+    db.execute(query);
+}
 
-    }
 
-    const query = "INSERT INTO users(username, firstname, lastname, email, password)";
+module.exports = {
+    addUser,
+
 }
