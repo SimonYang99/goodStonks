@@ -13,7 +13,12 @@
     "react-bootstrap": "^1.6.0",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
+<<<<<<< HEAD
     "react-scripts": "^3.4.3"
+=======
+    "react-scripts": "3.4.3",
+    "yarn": "^1.22.10"
+>>>>>>> e1d9913c6bf3d1b1826fe0338708fc77bfe0ea28
   },
   "scripts": {
     "start": "react-scripts start",
