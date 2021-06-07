@@ -13,9 +13,9 @@ const Header = () => {
     <Navbar fixed="top" bg="light" className="row">
       <Navbar.Brand className="col" href="/">GoodStonks</Navbar.Brand>
       <Nav className="ml-auto">
-        <Link class="btn btn-primary mr-2" to="/login">Login</Link>
-        <Link class="btn btn-warning mr-2" to="/register">Register</Link>
-        <Link class="btn btn-success mr-2" to="/profile">Profile</Link>
+        <Link className="btn btn-primary mr-2" to="/login">Login</Link>
+        <Link className="btn btn-warning mr-2" to="/register">Register</Link>
+        <Link className="btn btn-success mr-2" to="/profile">Profile</Link>
       </Nav>
     </Navbar>
   );
