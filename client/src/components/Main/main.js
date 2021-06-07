@@ -1,13 +1,21 @@
-import React from 'react';
+import React, {useState} from 'react';
+
+import {Card, Button} from "react-bootstrap"
 
 import Post from './post';
 import HotStocksList from '../HotStocksList/hotStocksList';
+
+import PostEdit from '../PostEdit/postEdit';
 
 const style = {
   postList: {
     //backgroundColor: 'rgb(230, 242, 255)',
     overflow: 'auto',
     textAlign: 'center'
+  },
+  newPostButton: {
+    margin: '1.5em',
+    textAlign: 'left'
   }
 }
 
@@ -30,20 +38,49 @@ const examplePosts = [
 ]
 
 const Main = () => {
+  const [newPost, setNewPost] = useState(false);
+
+  let leftSide = (!newPost) 
+  ? (<>
+      {examplePosts.map((val, key) => 
+        <Post key={key} 
+          title={val.title} 
+          poster={val.poster} 
+          postBody={val.postBody} 
+          commentCount={val.commentCount} />
+        )}
+    </>
+  )
+  : (
+    <PostEdit 
+      symbol="hi there"
+      cancel={setNewPost}
+    />
+  )
+
+  let NPB = (!newPost)
+  ? (
+    <Card style={style.newPostButton}>
+      <Card.Body>
+        <Button style={{width: '100%'}} 
+          onClick={()=>setNewPost(!newPost)}>
+            New Post
+        </Button>
+      </Card.Body>
+    </Card>
+  )
+  : <> </>
+  
+
   return ( 
     <div style={{marginTop:'4em'}} className="container-fluid">
       <div className="row" style={style.postList}>
         <div className="col-8">
-          {examplePosts.map((val, key) => 
-            <Post key={key} 
-              title={val.title} 
-              poster={val.poster} 
-              postBody={val.postBody} 
-              commentCount={val.commentCount} />
-          )}
+          {leftSide}
         </div>
 
         <div className="col-4">
+          {NPB}
           <HotStocksList />
         </div>
       </div>
