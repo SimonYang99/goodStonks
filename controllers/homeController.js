@@ -9,3 +9,12 @@ exports.mainPage = (req, res) => {
         });
     }
 }
+
+exports.newAccount = (req, res) => {
+
+    console.log(req.body);
+    res.render('/', {
+
+        title: "Main page for a new user!"
+    });
+}

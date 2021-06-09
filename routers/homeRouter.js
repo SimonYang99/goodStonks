@@ -5,4 +5,6 @@ const homeController = require('../controllers/homeController');
 
 router.get('/', homeController.mainPage);
 
+router.post('/', homeController.newAccount);
+
 module.exports = router;

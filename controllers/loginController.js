@@ -4,14 +4,15 @@ const loginModel = require('../models/loginData');
 exports.registerUser = async (req, res) => {
     try {
         if(!req.body) {
-            if(req.body.password != req.body.cPassword) {
-                if(await loginModel.addUser(req.body)) {
-                    //Add a user session variable
-                    req.session.userid = req.body.userid;
-                    res.redirect('/');
-                    process.exit();
-                }
-            }
+            console.log(req.body);
+            // if(req.body.password != req.body.cPassword) {
+            //     if(await loginModel.addUser(req.body)) {
+            //         //Add a user session variable
+            //         req.session.userid = req.body.userid;
+            //         res.redirect('/');
+            //         process.exit();
+            //     }
+            // }
             
         }
     } catch (error) {
