@@ -6,7 +6,9 @@ const client = new Client ({
     user: "ijxpcunzisdzwe",
     database: "d37cgb2g46cvj7",
     password: "65a1ca72fe1c333124da8765e544a039c39f6ffca9ba1e89932d1904938ae225",
-    ssl: true,
+    ssl: {
+        rejectUnauthorized:false
+    },
 });
 
 

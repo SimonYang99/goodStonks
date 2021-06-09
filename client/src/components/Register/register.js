@@ -11,9 +11,28 @@ const Register = () => {
     const [password, setPassword] = useState("");
     const [cPassword, setCPassword] = useState("");
 
-    const handleSubmit = (evt) => {
-        evt.preventDefault();
-        console.log(fName, lName, email, password, cPassword);
+
+    let handleSubmit = (e) => {
+        e.preventDefault();
+        
+        // Simple POST request with a JSON body using fetch
+        const requestOptions = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': 'http://localhost:5000/register'
+            },
+            body: JSON.stringify({
+                username: username,
+                fName: fName,
+                lName: lName,
+                email: email,
+                password: password,
+                cPassword: cPassword
+            }),
+        };
+        fetch('http://localhost:5000/register', requestOptions)
+            .then(response => response.json());
     }
 
     return (
