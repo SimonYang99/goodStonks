@@ -16,11 +16,10 @@
 
 // module.exports = pool;  
 
-
-const { Client } = require('pg');
+const { Pool } = require('pg');
 
 // PostGres
-const client = new Client ({
+const pool = new Pool ({
     host: "ec2-34-193-113-223.compute-1.amazonaws.com",
     user: "ijxpcunzisdzwe",
     database: "d37cgb2g46cvj7",
@@ -28,5 +27,8 @@ const client = new Client ({
     ssl: { rejectUnauthorized: false }
 });
 
-module.exports = client.connect();
-//yo
+pool.on('error', (err, client) => {
+    console.error('Error:', err);
+});
+
+module.exports = pool;

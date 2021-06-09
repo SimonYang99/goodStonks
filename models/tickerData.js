@@ -1,14 +1,15 @@
 const db = require("../util/database");
 
 function getPosts(ticker) {
-    let query = `SELECT * FROM posts WHERE ticker = ${ticker} ORDER BY date DESC`;
-    return db.query(query);
+    let query = `SELECT * FROM posts WHERE ticker = '${ticker}' ORDER BY post_date DESC`
+    return db.query(query)
+
 }
-function getPost(data) {
-    let query = `SELECT FROM posts WHERE post_id = ${post_id}`;
-    post =  db.execute(query);
-    query = `SELECT FROM comments WHERE post_id = ${post_id} ORDER BY date DESC`;
-    comments =  db.execute(query);
+function getPost(post_id) {
+    let query = `SELECT FROM posts WHERE post_id = '${post_id}'`;
+    post =  db.query(query);
+    query = `SELECT FROM comments WHERE post_id = '${post_id}' ORDER BY comment_date DESC`;
+    comments =  db.query(query);
     return [post,comments]
 }
 function addPost(postDetails) {
