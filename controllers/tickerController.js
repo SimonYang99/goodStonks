@@ -4,13 +4,16 @@ let tickerData = require('../models/tickerData')
 //Function adds user to database then redirects user to the main page.
 exports.tickerGetPosts = async (req, res) => {
     try {
+        console.log("ticker ran")
         if(!req.body) {
             posts = await tickerData.getPosts(req.params.id)
+            console.log(posts)
             if(posts) {
                 res.send(posts)
             }
             
         }
+        res.send(error)
     } catch (error) {
         throw error;
     }
@@ -19,10 +22,12 @@ exports.tickerGetPosts = async (req, res) => {
 exports.tickerGetPost= async (req, res) => {
     try {
         if(!req.body) {
-            data = await tickerData.getPosts(req.body.ticker)
-            post = data[0]
-            comments = data[1]
-            console.log(comments)
+            data = tickerData.getPost(req.params.postId)
+            post = await data[0]
+            comments = await data[1]
+            
+            console.log(post)
+            res.send([post,comments])
 
             
         }
@@ -74,7 +79,3 @@ exports.tickerCreateComment = async (req, res) => {
         throw error;
     }
 }
-
-
-
-

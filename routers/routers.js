@@ -4,6 +4,7 @@ const router = express.Router();
 const tickerController = require('../controllers/tickerController')
 
 router.get('/ticker/:id', tickerController.tickerGetPosts)
+router.get('/ticker/:id/:postId', tickerController.tickerGetPost)
 router.post('/createPost', tickerController.tickerCreatePost)
 
 
