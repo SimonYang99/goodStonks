@@ -9,4 +9,5 @@ const client = new Client ({
     ssl: true,
 });
 
+
 module.exports = client.connect();
