@@ -13,13 +13,15 @@ function getPost(post_id) {
     return [post,comments]
 }
 function addPost(postDetails) {
-    let query = "INSERT INTO users(username, ticker, post_date, post_text) VALUES('"
+    var now = new Date().toLocaleString()
+    let query = "INSERT INTO posts (username, ticker, post_date, post_text,post_title) VALUES('"
      + postDetails.username + "', '"
      + postDetails.ticker + "', '"
-     + "GETDATE()" + "', '"
-     + postDetails.postText + "');";
+     + now + "', '"
+     + postDetails.post_text + "', '"
+     + postDetails.post_title + "');";
 
-    db.execute(query);
+    db.query(query);
 }
 function addComment(commentDetails) {
     let query = "INSERT INTO users(post_id, parent_id, username, comment_date, comment_text) VALUES('"

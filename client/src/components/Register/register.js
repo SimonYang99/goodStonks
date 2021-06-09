@@ -14,6 +14,23 @@ const Register = () => {
     const handleSubmit = (evt) => {
         evt.preventDefault();
         console.log(fName, lName, email, password, cPassword);
+        const options = {
+            method: 'POST',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json;charset=UTF-8'
+            },
+            body: JSON.stringify({
+              a: 10,
+              b: 20
+            })
+          };
+          
+          fetch('http://localhost:5000', options)
+            .then(response => {
+              console.log(response.status);
+            });
+
     }
 
     return (

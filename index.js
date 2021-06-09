@@ -1,7 +1,9 @@
-const express = require('express');
+var express = require('express');
 const path = require('path');
+const cors = require("cors");
 
 const app = express();
+app.use(express.json());
 
 app.use(express.static(path.join(__dirname, 'client/build')));
 
@@ -16,6 +18,8 @@ app.get('/', (req, res) => {
 const port = process.env.PORT || 5000;
 
 let routers = require('./routers/routers');
+app.use(cors());
+// app.use(express.urlencoded({ extended: false }));
 app.use(routers);
 
 
