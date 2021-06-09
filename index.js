@@ -14,6 +14,11 @@ app.get('/', (req, res) => {
 });
 
 const port = process.env.PORT || 5000;
+
+let routers = require('./routers/routers');
+app.use(routers);
+
+
 app.listen(port);
 
 console.log(`password generator listening on port ${port}`);
