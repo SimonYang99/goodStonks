@@ -7,11 +7,17 @@ var app = express();
 app.use(express.static(path.join(__dirname, 'client/build')));
 app.use(cors());
 
+// body-parser code for JSON data
+app.use(express.json());
+app.use(express.urlencoded({
+  extended: true
+}));
+
 app.get('/api/example', (req, res) => {
   res.json({message: "this was sent from the server"});
 });
 
-app.get('/', (req, res) => {
+app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname+'/client/build/index.html'))
 });
 

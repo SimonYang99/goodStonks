@@ -11,8 +11,8 @@
     "yarn": "^1.22.10"
   },
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
+    "start": "node app.js",
+    "dev": "nodemon app.js",
     "heroku-postbuild": "cd client && yarn && yarn run build"
   },
   "devDependencies": {

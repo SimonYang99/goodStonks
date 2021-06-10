@@ -12,27 +12,41 @@ const Register = () => {
     const [cPassword, setCPassword] = useState("");
 
 
-    let handleSubmit = (e) => {
-        e.preventDefault();
-        
+    let handleSubmit = (evt) => {
+        evt.preventDefault();
+
+        console.log('TESTING: ' + username);
+
+        var personObject = {
+            title: 'Register new User',
+            username: username,
+            fName: fName,
+            lName: lName,
+            email: email,
+            password: password,
+            cPassword: cPassword
+        }
+
+        console.log('TESTING2: ' + JSON.stringify(personObject));
+
+        var url = 'http://localhost:5000/register'
+
         // Simple POST request with a JSON body using fetch
         const requestOptions = {
             method: 'POST',
+            mode: 'cors',
             headers: {
                 'Content-Type': 'application/json',
+                'Accept': 'application/json',
                 'Access-Control-Allow-Origin': 'http://localhost:5000/register'
             },
-            body: JSON.stringify({
-                username: username,
-                fName: fName,
-                lName: lName,
-                email: email,
-                password: password,
-                cPassword: cPassword
-            }),
+            body: JSON.stringify(personObject),
         };
-        fetch('http://localhost:5000/register', requestOptions)
-            .then(response => response.json());
+        fetch(url, requestOptions)
+            // .then(response => response.json());
+            .then((response) => {
+                return response.json()}
+            );
     }
 
     return (

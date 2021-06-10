@@ -7,6 +7,11 @@ exports.mainPage = (req, res) => {
         res.render('/', {
             
         });
+    } else {
+        res.render('/', {
+            userId: req.session.userId
+
+        });
     }
 }
 
