@@ -5,7 +5,7 @@ const tickerController = require('../controllers/tickerController')
 
 router.get('/ticker/:id', tickerController.tickerGetPosts)
 router.get('/ticker/:id/:postId', tickerController.tickerGetPost)
-router.post('/createPost', tickerController.tickerCreatePost)
+router.post('/ticker/createPost', tickerController.tickerCreatePost)
 
 
 module.exports = router;
