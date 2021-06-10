@@ -34,11 +34,11 @@ const Register = () => {
         // Simple POST request with a JSON body using fetch
         const requestOptions = {
             method: 'POST',
-            mode: 'cors',
+            // mode: 'cors',
             headers: {
-                'Content-Type': 'application/json',
                 'Accept': 'application/json',
-                'Access-Control-Allow-Origin': 'http://localhost:5000/register'
+                'Content-Type': 'application/json',
+                // 'Access-Control-Allow-Origin': url,
             },
             body: JSON.stringify(personObject),
         };

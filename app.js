@@ -1,6 +1,7 @@
 var express = require('express');
 const path = require('path');
 const cors = require('cors');
+const session = require('express-session');
 
 var app = express();
 
@@ -20,6 +21,21 @@ app.get('/api/example', (req, res) => {
 app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname+'/client/build/index.html'))
 });
+
+app.use(
+  session({
+    secret: 'secret',
+    name: 'session_data',
+    resave: true,
+    saveUninitialized: false,
+    rolling: true,
+    cookie: {
+      httpOnly: true,
+      // maxAge: 600000 //10 minutes
+      maxAge: 365 * 24 * 60 * 60 * 1000, // one year
+    },
+  }),
+);
 
 const port = process.env.PORT || 5000;
 

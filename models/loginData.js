@@ -5,17 +5,18 @@ function addUser(newUser) {
      + newUser.username + "', '"
      + newUser.fName + "', '"
      + newUser.lName + "', '"
-     + newUser.email + "');";
+     + newUser.email + "', '"
+     + newUser.password + "');";
 
-    db.execute(query);
+    return db.query(query);
 }
 
 function getUser(userData) {
-    return db.execute("SELECT * FROM users WHERE username = '" 
+    return db.query("SELECT * FROM users WHERE username = '" 
     + userData.username + "' AND password = '" + userData.password + "';")
 }
 
 module.exports = {
     getUser,
-    loginUser,
+    addUser,
 }
