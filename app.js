@@ -41,9 +41,11 @@ const port = process.env.PORT || 5000;
 
 let loginRouter = require('./routers/loginRouter');
 let homeRouter = require('./routers/homeRouter');
+let tickerRouter = require('./routers/tickerRouter');
 
 app.use(loginRouter);
 app.use(homeRouter);
+app.use(tickerRouter);
 
 
 app.listen(port);
