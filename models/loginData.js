@@ -12,8 +12,8 @@ function addUser(newUser) {
 }
 
 function getUser(userData) {
-    return db.query("SELECT * FROM users WHERE username = '" 
-    + userData.username + "' AND password = '" + userData.password + "';")
+    return db.query("SELECT * FROM users WHERE email = '" 
+    + userData.email + "' AND password = '" + userData.password + "';")
 }
 
 module.exports = {

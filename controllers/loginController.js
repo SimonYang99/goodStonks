@@ -31,15 +31,24 @@ exports.registerUser = async (req, res) => {
 
 //Logins user
 exports.loginUser = async (req, res) => {
-    
     try {
-        
-        let loggIn = await loginModel.getUser(req.body);
+        if(req.body) {
 
-        if(loggIn) {
-            req.session.userId = loggIn.userId;
-            res.redirect('/');
-            process.exit();
+            console.log('request user: ' + req.body.email);
+
+            let logIn = await loginModel.getUser(req.body);
+
+            // console.log('get user: ' + JSON.stringify(logIn));
+            if(logIn) {
+
+                console.log('login user: ' + logIn.rows[0].userid);
+                req.session.userid = logIn.rows[0].userid;
+
+                console.log('get session id : ' + req.session.userid);
+                    res.redirect('/');
+                    process.exit();
+            }
+
         }
         
     } catch (error) {
