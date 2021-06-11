@@ -18,6 +18,8 @@ exports.registerUser = async (req, res) => {
                     req.session.userid = getUser.rows[0].userid;
 
                     console.log('get session id : ' + req.session.userid);
+
+                    res.send(getUser.rows)
                 }
             }
             
@@ -43,6 +45,8 @@ exports.loginUser = async (req, res) => {
                 req.session.userid = logIn.rows[0].userid;
 
                 console.log('get session id : ' + req.session.userid);
+
+                res.send(logIn.rows)
             }
 
         }
