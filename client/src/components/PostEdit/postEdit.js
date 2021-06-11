@@ -48,7 +48,7 @@ const PostEdit = ({symbol, cancel}) => {
         completed: false
     };
   
-    fetch('http://localhost:5000/getAllPosts', {
+    fetch('http://localhost:5000/ticker/createpost', {
         method: 'POST',
         body: JSON.stringify(todo),
         headers: { 'Content-Type': 'application/json' }

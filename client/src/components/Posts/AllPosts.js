@@ -25,12 +25,11 @@ const AllPosts = () => {
   });
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchData = () => {
       fetch('http://localhost:5000/getAllPosts')
       .then(response => response.json())
       .then(json => {
-        console.log(json)
-        posts.data = json
+        json.forEach(post => post.post_date = post.post_date.split("T")[0])
         console.log(json)
         setPosts({data:json})
       })
@@ -44,10 +43,12 @@ const AllPosts = () => {
       {posts.data.map((val, key) => 
         <Post 
           key={key} 
-          title={val.title} 
-          poster={val.poster} 
-          postBody={val.postBody} 
-          commentCount={val.commentCount} />
+          title={val.post_title} 
+          poster={val.username} 
+          postBody={val.post_text} 
+          date={val.post_date} 
+          // commentCount={val.commentCount} API needs to be changed to load number of comments as comments are in a different table.
+          />
         )}
     </>
   );

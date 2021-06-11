@@ -44,6 +44,11 @@ exports.tickerCreatePost = async (req, res) => {
     try {
 
         console.log(req.body)
+        if(req.body.username == undefined||
+            req.body.postTitle == undefined||
+            req.body.ticker == undefined){
+                res.send({"error": "please fill out all fields."})
+            }
         let data = {'username' : req.body.username,
             'ticker':req.body.ticker,
             'postText':req.body.postText,
