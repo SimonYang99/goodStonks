@@ -59,14 +59,7 @@ const Register = () => {
                                 <h3>GoodStonks</h3>
                             </div>
                         </div>
-                        <div class="row mt-4">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <input type="text" name="username" class="form-control" id="InputUserName" placeholder="Username"
-                                        value={username}
-                                        onChange={e => setUsername(e.target.value)} />
-                                </div>
-                            </div>
+                        <div class="row mt-4">                     
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <input type="text" name="fName" class="form-control" id="InputFirstName" placeholder="First Name"
@@ -82,10 +75,21 @@ const Register = () => {
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <input type="email" name="email" class="form-control" id="InputEmail" placeholder="Email"
-                                value={email}
-                                onChange={e => setEmail(e.target.value)} />
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <input type="text" name="username" class="form-control" id="InputUserName" placeholder="Username"
+                                        value={username}
+                                        onChange={e => setUsername(e.target.value)} />
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <input type="email" name="email" class="form-control" id="InputEmail" placeholder="Email"
+                                        value={email}
+                                        onChange={e => setEmail(e.target.value)} />
+                                </div>
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-6">
