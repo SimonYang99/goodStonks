@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+  - node
+env:
+  CI: false
+script:
+  - yarn build
+  - yarn test
+
+before_install:
+  cd client
