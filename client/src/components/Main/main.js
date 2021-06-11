@@ -2,10 +2,10 @@ import React, {useState, useEffect} from 'react';
 
 import {Card, Button} from "react-bootstrap"
 
-import Post from './post';
 import HotStocksList from '../HotStocksList/hotStocksList';
 
 import PostEdit from '../PostEdit/postEdit';
+import AllPosts from '../Posts/AllPosts'
 
 const style = {
   postList: {
@@ -21,7 +21,7 @@ const style = {
 
 // fetch this data from server
 
-const examplePosts = [
+let examplePosts = [
   {
     id: 1,
     title: 'First Post',
@@ -41,30 +41,22 @@ const examplePosts = [
 
 const Main = () => {
   const [newPost, setNewPost] = useState(false);
-  
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await fetch(
-        'http://localhost:5000/getAllPosts',
-      );
- 
-      // setNewPost(result.data);
-      console.log(result.body)
-    };
- 
-    fetchData();
-  }, []);
 
   let leftSide = (!newPost) 
-  ? (<>
-      {examplePosts.map((val, key) => 
-        <Post key={key} 
-          title={val.title} 
-          poster={val.poster} 
-          postBody={val.postBody} 
-          commentCount={val.commentCount} />
-        )}
-    </>
+  ? (
+  <>
+    <AllPosts/>
+  </>
+    // <>
+    //   {examplePosts.map((val, key) => 
+    //     <Post 
+    //       key={key} 
+    //       title={val.title} 
+    //       poster={val.poster} 
+    //       postBody={val.postBody} 
+    //       commentCount={val.commentCount} />
+    //     )}
+    // </>
   )
   : (
     <PostEdit 

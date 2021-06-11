@@ -12,27 +12,41 @@ const Register = () => {
     const [cPassword, setCPassword] = useState("");
 
 
-    let handleSubmit = (e) => {
-        e.preventDefault();
-        
+    let handleSubmit = (evt) => {
+        evt.preventDefault();
+
+        console.log('TESTING: ' + username);
+
+        var personObject = {
+            title: 'Register new User',
+            username: username,
+            fName: fName,
+            lName: lName,
+            email: email,
+            password: password,
+            cPassword: cPassword
+        }
+
+        console.log('TESTING2: ' + JSON.stringify(personObject));
+
+        var url = 'http://localhost:5000/register'
+
         // Simple POST request with a JSON body using fetch
         const requestOptions = {
             method: 'POST',
+            // mode: 'cors',
             headers: {
+                'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': 'http://localhost:5000/register'
+                // 'Access-Control-Allow-Origin': url,
             },
-            body: JSON.stringify({
-                username: username,
-                fName: fName,
-                lName: lName,
-                email: email,
-                password: password,
-                cPassword: cPassword
-            }),
+            body: JSON.stringify(personObject),
         };
-        fetch('http://localhost:5000/register', requestOptions)
-            .then(response => response.json());
+        fetch(url, requestOptions)
+            // .then(response => response.json());
+            .then((response) => {
+                return response.json()}
+            );
     }
 
     return (
@@ -45,14 +59,7 @@ const Register = () => {
                                 <h3>GoodStonks</h3>
                             </div>
                         </div>
-                        <div class="row mt-4">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <input type="text" name="username" class="form-control" id="InputUserName" placeholder="Username"
-                                        value={username}
-                                        onChange={e => setUsername(e.target.value)} />
-                                </div>
-                            </div>
+                        <div class="row mt-4">                     
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <input type="text" name="fName" class="form-control" id="InputFirstName" placeholder="First Name"
@@ -68,10 +75,21 @@ const Register = () => {
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <input type="email" name="email" class="form-control" id="InputEmail" placeholder="Email"
-                                value={email}
-                                onChange={e => setEmail(e.target.value)} />
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <input type="text" name="username" class="form-control" id="InputUserName" placeholder="Username"
+                                        value={username}
+                                        onChange={e => setUsername(e.target.value)} />
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <input type="email" name="email" class="form-control" id="InputEmail" placeholder="Email"
+                                        value={email}
+                                        onChange={e => setEmail(e.target.value)} />
+                                </div>
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-6">
