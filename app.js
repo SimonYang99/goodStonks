@@ -18,9 +18,9 @@ app.get('/api/example', (req, res) => {
   res.json({message: "this was sent from the server"});
 });
 
-app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname+'/client/build/index.html'))
-});
+// app.get('/*', (req, res) => {
+//   res.sendFile(path.join(__dirname+'/client/build/index.html'))
+// });
 
 app.use(
   session({

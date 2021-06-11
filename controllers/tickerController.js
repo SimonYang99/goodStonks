@@ -6,9 +6,19 @@ exports.tickerGetPosts = async (req, res) => {
     try {
         console.log("ticker ran")
         posts = await tickerData.getPosts(req.params.id)
-        console.log(posts)
         if(posts) {
             res.send(posts)
+        }
+            
+    } catch (error) {
+        throw error;
+    }
+}
+exports.tickerGetAllPosts = async (req, res) => {
+    try {
+        posts = await tickerData.getAllPosts()
+        if(posts) {
+            res.send(posts.rows)
         }
             
     } catch (error) {
@@ -32,21 +42,20 @@ exports.tickerGetPost= async (req, res) => {
 
 exports.tickerCreatePost = async (req, res) => {
     try {
+
         console.log(req.body)
-        let data = {'username' : req.body.username,
-                    'ticker':req.body.ticker,
-                    'postText':req.body.postText,
-                    'postTitle':req.body.postTitle
-                }
-        await tickerData.createPost(data)
-        if(req.body.password != req.body.cPassword) {
-            if(await loginModel.addUser(req.body)) {
-                //Add a user session variable
-                req.session.userid = req.body.userid;
-                res.redirect('/');
-                process.exit();
+        if(req.body.username == undefined||
+            req.body.postTitle == undefined||
+            req.body.ticker == undefined){
+                res.send({"error": "please fill out all fields."})
             }
+        let data = {'username' : req.body.username,
+            'ticker':req.body.ticker,
+            'postText':req.body.postText,
+            'postTitle':req.body.postTitle
         }
+        await tickerData.createPost(data)
+        res.send("created")
             
     } catch (error) {
         throw error;
@@ -55,10 +64,13 @@ exports.tickerCreatePost = async (req, res) => {
 
 exports.tickerCreateComment = async (req, res) => {
     try {
-        let username = req.body.username
-        let ticker = req.body.ticker
-        let postText = req.body.postText
-        await tickerData.getPosts(req.body.ticker)
+        let data = {
+            'postId' : req.body.postId,
+            'parent_id' : req.body.parent_id,
+            'username' : req.body.username,
+            'commentText':req.body.commentText,
+            'commentTitle':req.body.commentTitle}
+        await tickerData.getPosts(data)
         if(req.body.password != req.body.cPassword) {
             if(await loginModel.addUser(req.body)) {
                 //Add a user session variable

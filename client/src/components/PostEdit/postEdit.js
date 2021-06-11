@@ -42,6 +42,18 @@ const PostEdit = ({symbol, cancel}) => {
 
   const handleSubmit = () => {
     console.log(info);
+    let todo = {
+        postTitle: info.title,
+        postText: info.body,
+        completed: false
+    };
+  
+    fetch('http://localhost:5000/ticker/createpost', {
+        method: 'POST',
+        body: JSON.stringify(todo),
+        headers: { 'Content-Type': 'application/json' }
+    }).then(res => res.json())
+      .then(json => console.log(json));
   }
 
   const handleCancel = () => {
