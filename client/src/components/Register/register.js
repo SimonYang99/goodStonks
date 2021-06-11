@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 // import * as ReactBootstrap from "react-bootstrap";
 import { Form } from "react-bootstrap";
 
@@ -11,8 +11,10 @@ const Register = () => {
     const [password, setPassword] = useState("");
     const [cPassword, setCPassword] = useState("");
 
+    const history = useHistory();
 
-    let handleSubmit = (evt) => {
+
+    let handleSubmit = async (evt) => {
         evt.preventDefault();
 
         console.log('TESTING: ' + username);
@@ -42,11 +44,13 @@ const Register = () => {
             },
             body: JSON.stringify(personObject),
         };
-        fetch(url, requestOptions)
-            // .then(response => response.json());
-            .then((response) => {
-                return response.json()}
-            );
+        await fetch(url, requestOptions)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                //verification stuff
+                history.push('/login');
+            })
     }
 
     return (

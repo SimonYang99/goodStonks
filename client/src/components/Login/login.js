@@ -1,13 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Link } from "react-router-dom";
 // import * as ReactBootstrap from "react-bootstrap";
 import { Form } from "react-bootstrap";
+import { useHistory } from "react-router-dom"
+
+import UserContext from '../../context/userContext';
 
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [remember, setRemember] = useState(false);
+    const {userInfo, setUserInfo} = useContext(UserContext); 
+    const history = useHistory();
 
-    const handleSubmit = (evt) => {
+
+    const handleSubmit = async (evt) => {
         evt.preventDefault();
         console.log(email, password);
 
@@ -27,68 +34,79 @@ const Login = () => {
             },
             body: JSON.stringify(loginPersonObject),
         };
-        fetch(url, requestOptions)
-            // .then(response => response.json());
-            .then((response) => {
-                return response.json()}
-            );
+        await fetch(url, requestOptions)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                if(remember) {
+                    localStorage.setItem('userInfo', JSON.stringify(data[0]));
+                }
+                setUserInfo({user: data[0], loggedIn: true})
+                history.push('/');
+            });
     }
 
   return(
     <div style={{marginTop:'4em'}} className="container-fluid">
         <Form>
-        <div class="card mx-auto" style={{width: '50%'}}>
-            <div class="card-body p-40">
-            <div class="row">
-                <div class="col-lg-12 text-center">
+        <div className="card mx-auto" style={{width: '50%'}}>
+            <div className="card-body p-40">
+            <div className="row">
+                <div className="col-lg-12 text-center">
                     <h3>GoodStonks</h3>
                 </div>
             </div>
-            <div class="row m-t-10">
-                <div class="col-lg-7 m-t-30 mt-4">
-                    <div class="form-group">
+            <div className="row m-t-10">
+                <div className="col-lg-7 m-t-30 mt-4">
+                    <div className="form-group">
                         {/* <label for="InputEmail">Email address</label> */}
                         <input  type="email" 
-                                class="form-control" 
+                                className="form-control" 
                                 id="InputEmail" placeholder="Email" 
                                 value={email}
                                 onChange={e => setEmail(e.target.value)}/>
                     </div>
-                    <div class="form-group">
+                    <div className="form-group">
                         {/* <label for="InputPassword">Password</label> */}
                         <input  type="password" 
-                                class="form-control" 
+                                className="form-control" 
                                 id="InputPassword" 
                                 placeholder="Password"
                                 value={password}
                                 onChange={e => setPassword(e.target.value)}/>
                     </div>
-                    <div class="checkbox m-b-10 pb-2">
-                        <div class="custom-control custom-checkbox checkbox-primary form-check">
-                        <input type="checkbox" class="form-check-input" id="Check"/>
-                        <label class="form-check-label">Remember Me</label>
+                    <div className="checkbox m-b-10 pb-2">
+                        <div className="custom-control custom-checkbox checkbox-primary form-check">
+                        <input 
+                            type="checkbox" 
+                            className="form-check-input" 
+                            id="Check"
+                            value={remember}
+                            onChange={()=>setRemember(!remember)}
+                            />
+                        <label className="form-check-label">Remember Me</label>
                         </div>
                     </div>
-                    <button type="submit" onClick={handleSubmit} class="btn btn-primary btn-floating btn-lg btn-block m-t-30">Login</button>
+                    <button type="submit" onClick={handleSubmit} className="btn btn-primary btn-floating btn-lg btn-block m-t-30">Login</button>
                 </div>
-                <div class="col-lg-5 text-center d-flex flex-column">
+                <div className="col-lg-5 text-center d-flex flex-column">
                     <div>
-                        <p class="mt-4">
+                        <p className="mt-4">
                             <strong>Do not have an account? </strong>
                             <br></br>
                             Please spend a few seconds to create your account and enjoy everything that GoodStonks has to offer.
                         </p>                        
                     </div>
-                    <div class="row mt-auto">
-                        <div class="col">
-                            {/* <button class="btn btn-warning btn-floating btn-lg btn-block m-t-30">Register</button> */}
-                            <Link class="btn btn-warning btn-floating btn-lg btn-block m-t-30" to="/register">Register</Link>
+                    <div className="row mt-auto">
+                        <div className="col">
+                            {/* <button className="btn btn-warning btn-floating btn-lg btn-block m-t-30">Register</button> */}
+                            <Link className="btn btn-warning btn-floating btn-lg btn-block m-t-30" to="/register">Register</Link>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-            <Link class="mb-4 ml-4" to="/">Back to Home Page</Link>
+            <Link className="mb-4 ml-4" to="/">Back to Home Page</Link>
         </div>
         </Form>
     </div>  
