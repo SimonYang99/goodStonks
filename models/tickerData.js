@@ -5,6 +5,11 @@ function getPosts(ticker) {
     return db.query(query)
 
 }
+function getAllPosts() {
+    let query = `SELECT * FROM posts ORDER BY post_date DESC limit 10`
+    return db.query(query)
+
+}
 function getPost(post_id) {
     let query = `SELECT FROM posts WHERE post_id = '${post_id}'`;
     post =  db.query(query);
@@ -41,6 +46,7 @@ function addComment(commentDetails) {
 
 module.exports = {
     getPosts: getPosts,
+    getAllPosts: getAllPosts,
     getPost: getPost,
     createPost : addPost,
     createComment : addComment, 

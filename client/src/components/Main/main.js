@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 import {Card, Button} from "react-bootstrap"
 
@@ -20,6 +20,7 @@ const style = {
 }
 
 // fetch this data from server
+
 const examplePosts = [
   {
     id: 1,
@@ -37,8 +38,22 @@ const examplePosts = [
   },
 ]
 
+
 const Main = () => {
   const [newPost, setNewPost] = useState(false);
+  
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await fetch(
+        'http://localhost:5000/getAllPosts',
+      );
+ 
+      // setNewPost(result.data);
+      console.log(result.body)
+    };
+ 
+    fetchData();
+  }, []);
 
   let leftSide = (!newPost) 
   ? (<>
