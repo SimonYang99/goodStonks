@@ -23,7 +23,7 @@ const Login = () => {
             password: password
         }
 
-        let url = 'http://localhost:5000/login';
+        let url = '/login';
 
         // Simple POST request with a JSON body using fetch
         const requestOptions = {
@@ -37,9 +37,11 @@ const Login = () => {
         await fetch(url, requestOptions)
             .then(response => response.json())
             .then(data => {
-                console.log(data)
-                if(remember) {
+                if(!!remember) {
                     localStorage.setItem('userInfo', JSON.stringify(data[0]));
+                    sessionStorage.setItem('userInfo', JSON.stringify(data[0]));
+                }else{
+                    sessionStorage.setItem('userInfo', JSON.stringify(data[0]));
                 }
                 setUserInfo({user: data[0], loggedIn: true})
                 history.push('/');
@@ -59,7 +61,6 @@ const Login = () => {
             <div className="row m-t-10">
                 <div className="col-lg-7 m-t-30 mt-4">
                     <div className="form-group">
-                        {/* <label for="InputEmail">Email address</label> */}
                         <input  type="email" 
                                 className="form-control" 
                                 id="InputEmail" placeholder="Email" 
@@ -67,7 +68,6 @@ const Login = () => {
                                 onChange={e => setEmail(e.target.value)}/>
                     </div>
                     <div className="form-group">
-                        {/* <label for="InputPassword">Password</label> */}
                         <input  type="password" 
                                 className="form-control" 
                                 id="InputPassword" 

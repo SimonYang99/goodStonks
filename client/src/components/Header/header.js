@@ -16,6 +16,7 @@ const Header = () => {
 
   const handleLogout = () => {
     localStorage.clear();
+    sessionStorage.clear();
     setUserInfo({user: undefined, loggedIn: false});
     history.push('/');
   }

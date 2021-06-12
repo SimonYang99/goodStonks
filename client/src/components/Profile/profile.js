@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Link } from "react-router-dom";
 // import * as ReactBootstrap from "react-bootstrap";
 import ProfileImage from "@daym3l/react-profile-image";
 import { Form } from "react-bootstrap";
+import UserContext from '../../context/userContext';
 
 const Profile = () => {
     const [username, setUsername] = useState("");
@@ -11,6 +12,13 @@ const Profile = () => {
     const [profilePic, setprofilePic] = useState("");
     const [password, setPassword] = useState("");
     const [cPassword, setCPassword] = useState("");
+    const { userInfo, setUserInfo } = useContext(UserContext);
+
+    useEffect(() => {
+        console.log(userInfo.user)
+        setFName(userInfo.user?.firstname);
+        setLName(userInfo.user?.lastname);
+    }, [])
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
@@ -20,7 +28,7 @@ const Profile = () => {
     const getImages = (base64Image, fileImage) => {
         // Do something with the selected image)
         // console.log(base64Image);
-        // console.log(fileImage);
+        console.log(fileImage);
         setprofilePic(base64Image)
     };
 
