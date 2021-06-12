@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from "react-router-dom";
 // import * as ReactBootstrap from "react-bootstrap";
 import { Form } from "react-bootstrap";
+import Swal from "sweetalert2"; 
 
 const Register = () => {
     const [username, setUsername] = useState("");
@@ -85,6 +86,12 @@ const Register = () => {
                 .then(data => {
                     console.log(data);
                     //verification stuff
+                    Swal.fire({  
+                        icon: 'success',
+                        title: 'Success',
+                        showConfirmButton: false,
+                        timer: 1500
+                      });  
                     history.push('/login');
                 })
         }

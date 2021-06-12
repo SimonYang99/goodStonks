@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 // import * as ReactBootstrap from "react-bootstrap";
 import { Form } from "react-bootstrap";
 import { useHistory } from "react-router-dom"
+import Swal from "sweetalert2"; 
 
 import UserContext from '../../context/userContext';
 
@@ -44,6 +45,12 @@ const Login = () => {
                     sessionStorage.setItem('userInfo', JSON.stringify(data[0]));
                 }
                 setUserInfo({user: data[0], loggedIn: true})
+                Swal.fire({  
+                    icon: 'success',
+                    title: 'Success',
+                    showConfirmButton: false,
+                    timer: 1500
+                  });  
                 history.push('/');
             });
     }
