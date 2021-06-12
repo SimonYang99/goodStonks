@@ -26,19 +26,19 @@ const Register = () => {
 
         (!!fName) ?
             setFnameInvalid({ message: null, invalid: false }) :
-            setFnameInvalid({ message: "First Name is required", invalid: true });
+            setFnameInvalid({ message: "First Name is required.", invalid: true });
         
         (!!lName) ?
             setLnameInvalid({ message: null, invalid: false }) :       
-            setLnameInvalid({ message: "Last Name is required", invalid: true });
+            setLnameInvalid({ message: "Last Name is required.,", invalid: true });
 
         (!!username) ?
             setUsernameInvalid({ message: null, invalid: false }) :
-            setUsernameInvalid({ message: "Username is required", invalid: true });
+            setUsernameInvalid({ message: "Username is required.", invalid: true });
 
         (!!validateEmail(email)) ?
             setEmailInvalid({ message: null, invalid: false }) :
-            setEmailInvalid({ message: "Email is Invalid", invalid: true });
+            setEmailInvalid({ message: "Email is invalid.", invalid: true });
 
         (!!(password == cPassword) && !!password && !!cPassword) ?
             setPasswordInvalid("") :
