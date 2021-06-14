@@ -40,6 +40,7 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={Main} />
           {loginRoute}
+          <Route path="/" component={Main} />
         </Switch>  
       </BrowserRouter>
     </UserProvider>

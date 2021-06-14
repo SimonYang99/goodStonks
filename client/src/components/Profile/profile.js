@@ -35,49 +35,49 @@ const Profile = () => {
     return (
         <div style={{ marginTop: '4em' }} className="container-fluid">
             <Form>
-                <div class="card mx-auto" style={{ width: '50%' }}>
-                    <div class="card-body p-40">
-                        <div class="row">
-                            <div class="mx-auto">
+                <div className="card mx-auto" style={{ width: '50%' }}>
+                    <div className="card-body p-40">
+                        <div className="row">
+                            <div className="mx-auto">
                                 <ProfileImage
                                     returnImage={getImages}
                                     uploadBtnProps={{ variant: "contained", label: "Upload" }}
                                 />
                             </div>
                         </div>
-                        <div class="row mt-4">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="InputFirstName" placeholder="First Name"
+                        <div className="row mt-4">
+                            <div className="col-lg-6">
+                                <div className="form-group">
+                                    <input type="text" className="form-control" id="InputFirstName" placeholder="First Name"
                                         value={fName}
                                         onChange={e => setFName(e.target.value)} />
                                 </div>
                             </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="InputLastName" placeholder="Last Name"
+                            <div className="col-lg-6">
+                                <div className="form-group">
+                                    <input type="text" className="form-control" id="InputLastName" placeholder="Last Name"
                                         value={lName}
                                         onChange={e => setLName(e.target.value)} />
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <input type="password" class="form-control" id="InputPassword1" placeholder="New Password"
+                        <div className="row">
+                            <div className="col-lg-6">
+                                <div className="form-group">
+                                    <input type="password" className="form-control" id="InputPassword1" placeholder="New Password"
                                         value={password}
                                         onChange={e => setPassword(e.target.value)} />
                                 </div>
                             </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <input type="password" class="form-control" id="InputPassword2" placeholder="Confirm New Password"
+                            <div className="col-lg-6">
+                                <div className="form-group">
+                                    <input type="password" className="form-control" id="InputPassword2" placeholder="Confirm New Password"
                                         value={cPassword}
                                         onChange={e => setCPassword(e.target.value)} />
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" onClick={handleSubmit} class="btn btn-primary btn-floating btn-lg btn-block m-t-30">Update Profile</button>
+                        <button type="submit" onClick={handleSubmit} className="btn btn-primary btn-floating btn-lg btn-block m-t-30">Update Profile</button>
                     </div>
                 </div>
             </Form>

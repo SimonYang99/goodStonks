@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from "react-router-dom";
 // import * as ReactBootstrap from "react-bootstrap";
 import { Form } from "react-bootstrap";
-import Swal from "sweetalert2"; 
 
 const Register = () => {
     const [username, setUsername] = useState("");
@@ -86,12 +85,6 @@ const Register = () => {
                 .then(data => {
                     console.log(data);
                     //verification stuff
-                    Swal.fire({  
-                        icon: 'success',
-                        title: 'Success',
-                        showConfirmButton: false,
-                        timer: 1500
-                      });  
                     history.push('/login');
                 })
         }
@@ -101,26 +94,26 @@ const Register = () => {
     return (
         <div style={{ marginTop: '4em' }} className="container-fluid">
             <Form>
-                <div class="card mx-auto" style={{ width: '50%' }}>
-                    <div class="card-body p-40">
-                        <div class="row">
-                            <div class="col-lg-12 text-center">
+                <div className="card mx-auto" style={{ width: '50%' }}>
+                    <div className="card-body p-40">
+                        <div className="row">
+                            <div className="col-lg-12 text-center">
                                 <h3>GoodStonks</h3>
                             </div>
                         </div>
-                        <div class="row mt-4">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <input type="text" name="fName" class="form-control" id="InputFirstName" placeholder="First Name"
+                        <div className="row mt-4">
+                            <div className="col-lg-6">
+                                <div className="form-group">
+                                    <input type="text" name="fName" className="form-control" id="InputFirstName" placeholder="First Name"
                                         value={fName}
                                         onChange={e => setFName(e.target.value)} />
                                     <span className="text-danger mt-2" >{fnameInvalid.message}</span>
 
                                 </div>
                             </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <input type="text" name="lName" class="form-control" id="InputLastName" placeholder="Last Name"
+                            <div className="col-lg-6">
+                                <div className="form-group">
+                                    <input type="text" name="lName" className="form-control" id="InputLastName" placeholder="Last Name"
                                         value={lName}
                                         onChange={e => { setLName(e.target.value); }} />
                                     <span className="text-danger mt-2" >{lnameInvalid.message}</span>
@@ -128,36 +121,36 @@ const Register = () => {
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <input type="text" name="username" class="form-control" id="InputUserName" placeholder="Username"
+                        <div className="row">
+                            <div className="col-lg-6">
+                                <div className="form-group">
+                                    <input type="text" name="username" className="form-control" id="InputUserName" placeholder="Username"
                                         value={username}
                                         onChange={e => setUsername(e.target.value)} />
                                     <span className="text-danger mt-2" >{usernameInvalid.message}</span>
 
                                 </div>
                             </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <input type="email" name="email" class="form-control" id="InputEmail" placeholder="Email"
+                            <div className="col-lg-6">
+                                <div className="form-group">
+                                    <input type="email" name="email" className="form-control" id="InputEmail" placeholder="Email"
                                         value={email}
                                         onChange={e => setEmail(e.target.value)} />
                                     <span className="text-danger mt-2" >{emailInvalid.message}</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <input type="password" name="password" class="form-control" id="InputPassword1" placeholder="Password"
+                        <div className="row">
+                            <div className="col-lg-6">
+                                <div className="form-group">
+                                    <input type="password" name="password" className="form-control" id="InputPassword1" placeholder="Password"
                                         value={password}
                                         onChange={e => { setPassword(e.target.value); }} />
                                 </div>
                             </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <input type="password" name="cPassword" class="form-control" id="InputPassword2" placeholder="Confirm Password"
+                            <div className="col-lg-6">
+                                <div className="form-group">
+                                    <input type="password" name="cPassword" className="form-control" id="InputPassword2" placeholder="Confirm Password"
                                         value={cPassword}
                                         onChange={e => { setCPassword(e.target.value); }} />
                                     <span className="text-danger mt-2" >{passwordInvalid.message}</span>
@@ -165,19 +158,19 @@ const Register = () => {
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <div class="checkbox m-t-10">
-                                <div class="custom-control custom-checkbox checkbox-primary form-check">
-                                    <input type="checkbox" name="checkbox" class="form-check-input" id="Check" />
-                                    <label class="form-check-label" for="Check">I accept the Terms of Service</label>
+                        <div className="form-group">
+                            <div className="checkbox m-t-10">
+                                <div className="custom-control custom-checkbox checkbox-primary form-check">
+                                    <input type="checkbox" name="checkbox" className="form-check-input" id="Check" />
+                                    <label className="form-check-label" htmlFor="Check">I accept the Terms of Service</label>
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" onClick={handleSubmit} class="btn btn-primary btn-floating btn-lg btn-block m-t-30">Create Your Account</button>
-                        <Link class="btn btn-warning btn-floating btn-lg btn-block m-t-30" to="/login">Login</Link>
-                        {/* <button type="" class="btn btn-warning btn-floating btn-lg btn-block m-t-30">Sign In</button> */}
+                        <button type="submit" onClick={handleSubmit} className="btn btn-primary btn-floating btn-lg btn-block m-t-30">Create Your Account</button>
+                        <a className="btn btn-warning btn-floating btn-lg btn-block m-t-30" href="/login">Login</a>
+                        {/* <button type="" className="btn btn-warning btn-floating btn-lg btn-block m-t-30">Sign In</button> */}
                     </div>
-                    <Link class="mb-4 ml-4" to="/">Back to Home Page</Link>
+                    <a className="mb-4 ml-4" href="/">Back to Home Page</a>
                 </div>
             </Form>
         </div>
