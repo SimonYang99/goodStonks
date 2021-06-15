@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import React, { useState, useLayoutEffect, useMemo } from 'react';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './components/Login/login';
@@ -9,35 +9,42 @@ import Ticker from './components/Ticker/ticker';
 import Header from './components/Header/header';
 import Profile from './components/Profile/profile';
 
+import { UserProvider } from './context/userContext';
+
 const App = () => {
-  const [message, setMessage] = useState("no message :(");
-  useEffect(()=> {
-    fetch('/api/example')
-      .then(res => res.json())
-      .then(resp => setMessage(resp.message))
-  }, [])
+  let userData = {user: undefined, loggedIn: false};
+
+  if (!!localStorage.getItem("userInfo")){
+    userData = {user: JSON.parse(localStorage.getItem("userInfo")), loggedIn: true}
+  }else if (!!sessionStorage.getItem("userInfo")) {
+    userData = {user: JSON.parse(sessionStorage.getItem("userInfo")), loggedIn: true}
+  }
+
+  const [userInfo, setUserInfo] = useState(userData);
+
+  const userValue = useMemo(() => ({
+    userInfo,
+    setUserInfo
+  }), [userInfo])
+
+  let loginRoute = userInfo.loggedIn
+  ? <Route path="/profile" component={Profile} />
+  : <>
+    <Route path="/login" component={Login} />
+    <Route path="/register" component={Register} />
+  </>
 
   return(
-    <BrowserRouter>
-      {/* <h1>{message}</h1> */}
-      <Header />
-      <Switch>
-        <Route exact path="/" component={Main} />
-        <Route path="/test" component={NotHome} />
-        <Route path="/login" component={Login} />
-        <Route path="/register" component={Register} />
-        <Route path="/profile" component={Profile} />
-        <Route path="/ticker/:id" component={Ticker} />
-      </Switch>  
-    </BrowserRouter>
-  )
-}
-
-const NotHome = () => {
-  return(
-    <div>
-      notHome
-    </div>
+    <UserProvider value={userValue}>
+      <BrowserRouter>
+        <Header />
+        <Switch>
+          <Route exact path="/" component={Main} />
+          {loginRoute}
+          <Route path="/" component={Main} />
+        </Switch>  
+      </BrowserRouter>
+    </UserProvider>
   )
 }
 

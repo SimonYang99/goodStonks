@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 
 import {Card, Button} from "react-bootstrap"
 
@@ -6,6 +6,8 @@ import HotStocksList from '../HotStocksList/hotStocksList';
 
 import PostEdit from '../PostEdit/postEdit';
 import AllPosts from '../Posts/AllPosts'
+
+import UserContext from '../../context/userContext';
 
 const style = {
   postList: {
@@ -41,6 +43,7 @@ let examplePosts = [
 
 const Main = () => {
   const [newPost, setNewPost] = useState(false);
+  const { userInfo, setUserInfo } = useContext(UserContext);
 
   let leftSide = (!newPost) 
   ? (
@@ -65,7 +68,7 @@ const Main = () => {
     />
   )
 
-  let NPB = (!newPost)
+  let NPB = (!newPost && !!userInfo.loggedIn)
   ? (
     <Card style={style.newPostButton}>
       <Card.Body>

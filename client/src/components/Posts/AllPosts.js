@@ -7,20 +7,20 @@ import Post from './post';
 const AllPosts = () => {
    const [posts, setPosts] = useState({
     data: [
-      {
-        id: 1,
-        title: 'First Post',
-        poster: 'Jon Smith',
-        postBody: 'Posting is fun',
-        commentCount: 500
-      },
-      {
-        id: 2,
-        title: '2nd Post',
-        poster: 'Jon Smith',
-        postBody: 'Posting is not fun',
-        commentCount: 70
-      },
+      // {
+      //   id: 1,
+      //   title: 'First Post',
+      //   poster: 'Jon Smith',
+      //   postBody: 'Posting is fun',
+      //   commentCount: 500
+      // },
+      // {
+      //   id: 2,
+      //   title: '2nd Post',
+      //   poster: 'Jon Smith',
+      //   postBody: 'Posting is not fun',
+      //   commentCount: 70
+      // },
     ]
   });
 
