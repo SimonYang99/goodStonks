@@ -5,9 +5,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './components/Login/login';
 import Register from './components/Register/register'
 import Main from './components/Main/main';
-import Ticker from './components/Ticker/ticker';
 import Header from './components/Header/header';
 import Profile from './components/Profile/profile';
+import Ticker from './components/Ticker/ticker';
 
 import { UserProvider } from './context/userContext';
 
@@ -32,6 +32,7 @@ const App = () => {
   : <>
     <Route path="/login" component={Login} />
     <Route path="/register" component={Register} />
+    <Route path="/ticker/:id" component={Ticker} />
   </>
 
   return(
@@ -42,6 +43,7 @@ const App = () => {
           <Route exact path="/" component={Main} />
           {loginRoute}
           <Route path="/" component={Main} />
+
         </Switch>  
       </BrowserRouter>
     </UserProvider>

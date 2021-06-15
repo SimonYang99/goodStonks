@@ -33,14 +33,14 @@ exports.registerUser = async (req, res) => {
 exports.loginUser = async (req, res) => {
     try {
         if(req.body) {
+            console.log(req.body)
 
             console.log('request user: ' + req.body.email);
 
             let logIn = await loginModel.getUser(req.body);
 
             // console.log('get user: ' + JSON.stringify(logIn));
-            if(logIn) {
-
+            if(logIn.rows[0] != undefined) {
                 console.log('login user: ' + logIn.rows[0].userid);
                 req.session.userid = logIn.rows[0].userid;
 
@@ -48,6 +48,7 @@ exports.loginUser = async (req, res) => {
 
                 res.send(logIn.rows)
             }
+            res.send("error")
 
         }
         

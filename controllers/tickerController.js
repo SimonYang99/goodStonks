@@ -1,5 +1,7 @@
 const loginModel = require('../models/loginData');
 let tickerData = require('../models/tickerData')
+const fetch = require("node-fetch");
+const axios = require("axios");
 
 //Function adds user to database then redirects user to the main page.
 exports.tickerGetPosts = async (req, res) => {
@@ -83,4 +85,25 @@ exports.tickerCreateComment = async (req, res) => {
     } catch (error) {
         throw error;
     }
+}
+exports.getValue = async (req, res) => {
+    console.log("value ran")
+    var options = {
+        method: 'GET',
+        url: 'https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-financials',
+        params: {symbol: 'AMRN', region: 'US'},
+        headers: {
+            'x-rapidapi-key': 'b0d8da8b28msh68e1787ba55e190p1d33e6jsn90e4292507de',
+            'x-rapidapi-host': 'apidojo-yahoo-finance-v1.p.rapidapi.com'
+        }
+    };
+      
+      axios.request(options).then(function (response) {
+          console.log(response.data);
+          res.send(response.data.price.regularMarketPrice.fmt)
+      }).catch(function (error) {
+          console.error(error);
+      });
+    res.send(result)
+    
 }

@@ -8,5 +8,7 @@ router.get('/ticker/:id', tickerController.tickerGetPosts)
 router.get('/ticker/:id/:postId', tickerController.tickerGetPost)
 router.post('/ticker/createPost', tickerController.tickerCreatePost)
 
+router.get('/value/:id', tickerController.getValue)
+
 
 module.exports = router;

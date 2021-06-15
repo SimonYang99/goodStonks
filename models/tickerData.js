@@ -39,11 +39,6 @@ function addComment(commentDetails) {
     db.execute(query);
 }
 
-// function loginUser(userData) {
-//     return db.execute("SELECT * FROM users WHERE username = '" 
-//     + userData.username + "' AND password = '" + userData.password + "';")
-// }
-
 module.exports = {
     getPosts: getPosts,
     getAllPosts: getAllPosts,

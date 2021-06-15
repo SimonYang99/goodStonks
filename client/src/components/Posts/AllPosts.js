@@ -1,26 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
-// import * as ReactBootstrap from "react-bootstrap";
-import { Card, Button } from "react-bootstrap";
 import Post from './post';
 
 const AllPosts = () => {
    const [posts, setPosts] = useState({
     data: [
-      // {
-      //   id: 1,
-      //   title: 'First Post',
-      //   poster: 'Jon Smith',
-      //   postBody: 'Posting is fun',
-      //   commentCount: 500
-      // },
-      // {
-      //   id: 2,
-      //   title: '2nd Post',
-      //   poster: 'Jon Smith',
-      //   postBody: 'Posting is not fun',
-      //   commentCount: 70
-      // },
     ]
   });
 
@@ -55,37 +38,4 @@ const AllPosts = () => {
 }
 
 export default AllPosts;
-
-
-// import React, { useState, useEffect } from 'react';
-// import { Link } from "react-router-dom";
-// // import * as ReactBootstrap from "react-bootstrap";
-// import { Card, Button } from "react-bootstrap";
-
-// const AllPosts = () => {
-//     const [posts, setPosts] = useState({
-//     examplePosts : [
-//         {
-//           id: 1,
-//           title: 'First Post',
-//           poster: 'Jon Smith',
-//           postBody: 'Posting is fun',
-//           commentCount: 500
-//         },
-//         {
-//           id: 2,
-//           title: '2nd Post',
-//           poster: 'Jon Smith',
-//           postBody: 'Posting is not fun',
-//           commentCount: 70
-//         },
-//       ]
-//   });
-
-//   return(
-//     {posts.examplePosts.map}
-//   );
-// }
-
-// export default AllPosts;
 
