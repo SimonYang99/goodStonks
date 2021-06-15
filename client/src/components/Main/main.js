@@ -50,16 +50,6 @@ const Main = () => {
   <>
     <AllPosts/>
   </>
-    // <>
-    //   {examplePosts.map((val, key) => 
-    //     <Post 
-    //       key={key} 
-    //       title={val.title} 
-    //       poster={val.poster} 
-    //       postBody={val.postBody} 
-    //       commentCount={val.commentCount} />
-    //     )}
-    // </>
   )
   : (
     <PostEdit 

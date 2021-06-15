@@ -9,16 +9,40 @@ exports.tickerGetPosts = async (req, res) => {
         console.log("ticker ran")
         posts = await tickerData.getPosts(req.params.id)
         if(posts) {
-            res.send(posts)
+            res.send(posts.rows)
         }
             
     } catch (error) {
         throw error;
     }
 }
+// exports.tickerGetAllPosts = async (req, res) => {
+//     try {
+//         let posts = await tickerData.getAllPosts()
+//         let comments = []
+//         // console.log(posts.rows)
+//         if(posts.rows.length > 0) {
+//             for(postIndex in posts.rows){
+//                 posts.rows[postIndex].commentsCount = tickerData.getCommentsCount(posts.rows[postIndex].post_id)
+//                 comments.push(posts.rows[postIndex].commentsCount)
+//             }
+//             Promise.all(comments).then((values) => {
+//                 console.log(posts.rows[0].commentsCount)
+//                 // for(postIndex in posts.rows){
+//                 //     posts.rows[postIndex].commentsCount = posts.rows[postIndex].commentsCount.result
+//                 // }
+//                 res.send(posts.rows)
+//             });
+//         }
+            
+//     } catch (error) {
+//         throw error;
+//     }
+// }
 exports.tickerGetAllPosts = async (req, res) => {
     try {
         posts = await tickerData.getAllPosts()
+        
         if(posts) {
             res.send(posts.rows)
         }
@@ -91,19 +115,23 @@ exports.getValue = async (req, res) => {
     var options = {
         method: 'GET',
         url: 'https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-financials',
-        params: {symbol: 'AMRN', region: 'US'},
+        params: {symbol: req.params.id, region: 'US'},
         headers: {
             'x-rapidapi-key': 'b0d8da8b28msh68e1787ba55e190p1d33e6jsn90e4292507de',
             'x-rapidapi-host': 'apidojo-yahoo-finance-v1.p.rapidapi.com'
         }
     };
       
-      axios.request(options).then(function (response) {
-          console.log(response.data);
-          res.send(response.data.price.regularMarketPrice.fmt)
-      }).catch(function (error) {
-          console.error(error);
-      });
-    res.send(result)
+    axios.request(options).then(function (response) {
+        console.log(response.data);
+        if(response.data.price != undefined){
+            res.send({price: response.data.price.regularMarketPrice.fmt})
+        }else{
+            res.send({"error":"INVALID TICKER"})
+        }
+
+    }).catch(function (error) {
+        console.error(error);
+    });
     
 }

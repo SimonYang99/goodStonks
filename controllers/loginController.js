@@ -48,6 +48,7 @@ exports.loginUser = async (req, res) => {
 
                 res.send(logIn.rows)
             }
+            console.log("error")
             res.send("error")
 
         }

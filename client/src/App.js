@@ -32,7 +32,6 @@ const App = () => {
   : <>
     <Route path="/login" component={Login} />
     <Route path="/register" component={Register} />
-    <Route path="/ticker/:id" component={Ticker} />
   </>
 
   return(
@@ -41,9 +40,9 @@ const App = () => {
         <Header />
         <Switch>
           <Route exact path="/" component={Main} />
+          <Route path="/ticker" component={Ticker} />
           {loginRoute}
           <Route path="/" component={Main} />
-
         </Switch>  
       </BrowserRouter>
     </UserProvider>

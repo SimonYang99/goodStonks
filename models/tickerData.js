@@ -1,12 +1,17 @@
 const db = require("../util/database");
 
 function getPosts(ticker) {
-    let query = `SELECT * FROM posts WHERE ticker = '${ticker}' ORDER BY post_date DESC`
+    let query = `SELECT * FROM posts WHERE ticker = '${ticker}' ORDER BY post_date DESC limit 10`
     return db.query(query)
 
 }
 function getAllPosts() {
     let query = `SELECT * FROM posts ORDER BY post_date DESC limit 10`
+    return db.query(query)
+
+}
+function getCommentsCount(post_id) {
+    let query = `SELECT COUNT(post_id) FROM posts WHERE post_id = ${post_id}`
     return db.query(query)
 
 }
@@ -44,5 +49,6 @@ module.exports = {
     getAllPosts: getAllPosts,
     getPost: getPost,
     createPost : addPost,
-    createComment : addComment, 
+    createComment : addComment,
+    getCommentsCount: getCommentsCount, 
 }
