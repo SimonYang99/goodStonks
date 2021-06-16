@@ -47,10 +47,11 @@ exports.loginUser = async (req, res) => {
                 console.log('get session id : ' + req.session.userid);
 
                 res.send(logIn.rows)
-            }
-            console.log("error")
-            res.send("error")
+            }else{
+                console.log("error")
+                res.send("error")
 
+            }
         }
         
     } catch (error) {
