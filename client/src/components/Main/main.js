@@ -17,7 +17,8 @@ const style = {
   },
   newPostButton: {
     margin: '1.5em',
-    textAlign: 'left'
+    textAlign: 'left',
+    marginTop: '3.8em'
   }
 }
 
@@ -48,6 +49,7 @@ const Main = () => {
   let leftSide = (!newPost) 
   ? (
   <>
+  <h2 style={{textAlign:'center'}}className="card-title">Frontpage</h2>
     <AllPosts/>
   </>
   )
