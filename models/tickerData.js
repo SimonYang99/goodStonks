@@ -23,8 +23,8 @@ function getPost(post_id) {
     return [post,comments]
 }
 function addPost(postDetails) {
-    var now = new Date().toLocaleString()
-    let query = "INSERT INTO posts (username, ticker, post_date, post_text,post_title) VALUES('"
+    var now = new Date().toUTCString();
+    let query = "INSERT INTO posts (username, ticker, post_date, post_text, post_title) VALUES('"
      + postDetails.username + "', '"
      + postDetails.ticker + "', '"
      + now + "', '"

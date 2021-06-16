@@ -6,7 +6,7 @@ const axios = require("axios");
 //Function adds user to database then redirects user to the main page.
 exports.tickerGetPosts = async (req, res) => {
     try {
-        console.log("ticker ran")
+        // console.log("ticker ran")
         posts = await tickerData.getPosts(req.params.id)
         if(posts) {
             res.send(posts.rows)
@@ -42,6 +42,8 @@ exports.tickerGetPosts = async (req, res) => {
 exports.tickerGetAllPosts = async (req, res) => {
     try {
         posts = await tickerData.getAllPosts()
+
+        console.log(posts)
         
         if(posts) {
             res.send(posts.rows)
@@ -69,7 +71,7 @@ exports.tickerGetPost= async (req, res) => {
 exports.tickerCreatePost = async (req, res) => {
     try {
 
-        console.log(req.body)
+        // console.log(req.body)
         if(req.body.username == undefined||
             req.body.postTitle == undefined||
             req.body.ticker == undefined){
@@ -112,7 +114,7 @@ exports.tickerCreateComment = async (req, res) => {
     }
 }
 exports.getValue = async (req, res) => {
-    console.log("value ran")
+    // console.log("value ran")
     var options = {
         method: 'GET',
         url: 'https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-financials',
@@ -124,7 +126,7 @@ exports.getValue = async (req, res) => {
     };
       
     axios.request(options).then(function (response) {
-        console.log(response.data);
+        // console.log(response.data);
         if(response.data.price != undefined){
             res.send({price: response.data.price.regularMarketPrice.fmt})
         }else{

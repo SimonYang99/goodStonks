@@ -32,7 +32,7 @@ exports.registerUser = async (req, res) => {
 //Logins user
 exports.loginUser = async (req, res) => {
     try {
-        if(req.body) {
+        if (req.body) {
             console.log(req.body)
 
             console.log('request user: ' + req.body.email);
@@ -40,20 +40,22 @@ exports.loginUser = async (req, res) => {
             let logIn = await loginModel.getUser(req.body);
 
             // console.log('get user: ' + JSON.stringify(logIn));
-            if(logIn.rows[0] != undefined) {
+            if (logIn.rows[0] != undefined) {
                 console.log('login user: ' + logIn.rows[0].userid);
                 req.session.userid = logIn.rows[0].userid;
 
                 console.log('get session id : ' + req.session.userid);
 
+                console.log('Successfully logged in!');
+
                 res.send(logIn.rows)
-            }else{
+            } else {
                 console.log("error")
                 res.send("error")
-
             }
+
         }
-        
+
     } catch (error) {
         throw error;
     }

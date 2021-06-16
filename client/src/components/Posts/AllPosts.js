@@ -42,7 +42,7 @@ const AllPosts = (props) => {
           key={key} 
           title={val.post_title} 
           poster={val.username} 
-          // postBody={val.post_text} 
+          postBody={val.post_text} 
           date={val.post_date} 
           commentCount={val.commentCount}
           />
