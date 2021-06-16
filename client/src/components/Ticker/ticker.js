@@ -62,7 +62,7 @@ const Ticker = () => {
     />
   )
 
-  let NPB = (!newPost && !!userInfo.loggedIn)
+  let NPB = (!newPost && !!userInfo.loggedIn && value != 'INVALID TICKER')
   ? (
     <Card style={style.newPostButton}>
       <Card.Body>
