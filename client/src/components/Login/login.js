@@ -107,13 +107,13 @@ const Login = () => {
                     <div className="row mt-auto">
                         <div className="col">
                             {/* <button className="btn btn-warning btn-floating btn-lg btn-block m-t-30">Register</button> */}
-                            <Link className="btn btn-warning btn-floating btn-lg btn-block m-t-30" to="/register">Register</Link>
+                            <a className="btn btn-warning btn-floating btn-lg btn-block m-t-30" href="/register">Register</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-            <Link className="mb-4 ml-4" to="/">Back to Home Page</Link>
+            <a className="mb-4 ml-4" href="/">Back to Home Page</a>
         </div>
         </Form>
     </div>  

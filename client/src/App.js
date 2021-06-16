@@ -30,9 +30,9 @@ const App = () => {
   let loginRoute = userInfo.loggedIn
   ? <Route path="/profile" component={Profile} />
   : <>
-    <Route path="/login" component={Login} />
-    <Route path="/register" component={Register} />
-  </>
+      <Route path="/login" component={Login} />
+      <Route path="/register" component={Register} />
+    </>
 
   return(
     <UserProvider value={userValue}>

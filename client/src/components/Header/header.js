@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import {Navbar, Nav, Button} from 'react-bootstrap';
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import UserContext from '../../context/userContext';
 
@@ -28,14 +28,14 @@ const Header = () => {
         userInfo.loggedIn 
         ?(
           <Nav className="ml-auto">
-            <Link className="btn btn-success mr-2" to="/profile">Profile</Link>
+            <a className="btn btn-success mr-2" href="/profile">Profile</a>
             <Button className="btn btn-warning mr-2" onClick={()=>handleLogout()}>Logout</Button>
           </Nav>
         )
         :(
           <Nav className="ml-auto">
-            <Link className="btn btn-primary mr-2" to="/login">Login</Link>
-            <Link className="btn btn-warning mr-2" to="/register">Register</Link>
+            <a className="btn btn-primary mr-2" href="/login">Login</a>
+            <a className="btn btn-warning mr-2" href="/register">Register</a>
           </Nav>
         )
       }
