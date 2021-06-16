@@ -15,7 +15,7 @@ const Profile = () => {
     const { userInfo, setUserInfo } = useContext(UserContext);
 
     useEffect(() => {
-        console.log(userInfo.user)
+        // console.log(userInfo)w
         setFName(userInfo.user?.firstname);
         setLName(userInfo.user?.lastname);
     }, [])
@@ -56,7 +56,7 @@ const Profile = () => {
                             <div className="col-lg-6">
                                 <div className="form-group">
                                     <input type="text" className="form-control" id="InputLastName" placeholder="Last Name"
-                                        value={lName}
+                                        defaultValue={lName}
                                         onChange={e => setLName(e.target.value)} />
                                 </div>
                             </div>
