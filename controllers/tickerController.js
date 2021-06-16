@@ -8,6 +8,7 @@ exports.tickerGetPosts = async (req, res) => {
     try {
         // console.log("ticker ran")
         posts = await tickerData.getPosts(req.params.id)
+        console.log(posts.rows)
         if(posts) {
             res.send(posts.rows)
         }
@@ -43,7 +44,7 @@ exports.tickerGetAllPosts = async (req, res) => {
     try {
         posts = await tickerData.getAllPosts()
 
-        console.log(posts)
+        // console.log(posts)
         
         if(posts) {
             res.send(posts.rows)
@@ -71,7 +72,7 @@ exports.tickerGetPost= async (req, res) => {
 exports.tickerCreatePost = async (req, res) => {
     try {
 
-        // console.log(req.body)
+        console.log(req.body)
         if(req.body.username == undefined||
             req.body.postTitle == undefined||
             req.body.ticker == undefined){

@@ -28,8 +28,8 @@ function addPost(postDetails) {
      + postDetails.username + "', '"
      + postDetails.ticker + "', '"
      + now + "', '"
-     + postDetails.post_text + "', '"
-     + postDetails.post_title + "');";
+     + postDetails.postText + "', '"
+     + postDetails.postTitle + "');";
 
     db.query(query);
 }
