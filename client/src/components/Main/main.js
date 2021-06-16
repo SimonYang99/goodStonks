@@ -53,7 +53,7 @@ const Main = () => {
   )
   : (
     <PostEdit 
-      symbol="hi there"
+      symbol=""
       cancel={setNewPost}
     />
   )
