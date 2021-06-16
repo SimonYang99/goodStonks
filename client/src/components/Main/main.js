@@ -18,7 +18,6 @@ const style = {
   newPostButton: {
     margin: '1.5em',
     textAlign: 'left',
-    marginTop: '3.8em'
   }
 }
 
@@ -49,7 +48,6 @@ const Main = () => {
   let leftSide = (!newPost) 
   ? (
   <>
-  <h2 style={{textAlign:'center'}}className="card-title">Frontpage</h2>
     <AllPosts/>
   </>
   )
@@ -76,6 +74,7 @@ const Main = () => {
 
   return ( 
     <div style={{marginTop:'4em'}} className="container-fluid">
+      <h2 style={{textAlign:'center'}}className="card-title">Frontpage</h2>
       <div className="row" style={style.postList}>
         <div className="col-8">
           {leftSide}

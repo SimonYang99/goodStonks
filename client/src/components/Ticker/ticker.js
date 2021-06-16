@@ -25,7 +25,6 @@ const style = {
   newPostButton: {
     margin: '1.5em',
     textAlign: 'left',
-    marginTop: '5em'
   }
 }
 
@@ -53,7 +52,6 @@ const Ticker = () => {
   let leftSide = (!newPost) 
   ? (
   <>
-    <h2 style={{textAlign:'center'}}>{currentTicker.toUpperCase()}: <span className="text-success">{value}</span></h2>
     <AllPosts ticker={currentTicker}></AllPosts>
   </>
   )
@@ -79,8 +77,9 @@ const Ticker = () => {
   
   return ( 
     <div style={{marginTop:'4em'}} className="container-fluid">
+      <h2 style={{textAlign:'center'}}>{currentTicker.toUpperCase()}: <span className="text-success">{value}</span></h2>
       <div className="row">
-        <div className="card-body col-8">
+        <div className="col-8">
           {leftSide}
         </div>
         <div className="col-4">
