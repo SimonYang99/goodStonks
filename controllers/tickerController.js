@@ -57,12 +57,13 @@ exports.tickerGetAllPosts = async (req, res) => {
 
 exports.tickerGetPost= async (req, res) => {
     try {
-        data = tickerData.getPost(req.params.postId)
+        console.log(req.params.id)
+        data = tickerData.getPost(req.params.id)
         post = await data[0]
+        post = post.rows[0]
         comments = await data[1]
-        
-        console.log(post)
-        res.send([post,comments])
+        comments = comments.rows
+        res.send({"post":post,"comments":comments})
             
     } catch (error) {
         throw error;
@@ -93,25 +94,31 @@ exports.tickerCreatePost = async (req, res) => {
 }
 
 exports.tickerCreateComment = async (req, res) => {
-    try {
-        let data = {
-            'postId' : req.body.postId,
-            'parent_id' : req.body.parent_id,
-            'username' : req.body.username,
-            'commentText':req.body.commentText,
-            'commentTitle':req.body.commentTitle}
-        await tickerData.getPosts(data)
-        if(req.body.password != req.body.cPassword) {
-            if(await loginModel.addUser(req.body)) {
-                //Add a user session variable
-                req.session.userid = req.body.userid;
-                res.redirect('/');
-                process.exit();
+    if(req.body.username == undefined||
+        req.body.postId == undefined||
+        req.body.CommentText == undefined){
+        res.send({"error": "please fill out all fields."})
+    }else{
+        try {
+            let data = {
+                'postId' : req.body.postId,
+                'parent_id' : req.body.parent_id,
+                'username' : req.body.username,
+                'commentText':req.body.commentText,
+                'commentTitle':req.body.commentTitle}
+            await tickerData.getPosts(data)
+            if(req.body.password != req.body.cPassword) {
+                if(await loginModel.addUser(req.body)) {
+                    //Add a user session variable
+                    req.session.userid = req.body.userid;
+                    res.redirect('/');
+                    process.exit();
+                }
             }
+                
+        } catch (error) {
+            throw error;
         }
-            
-    } catch (error) {
-        throw error;
     }
 }
 exports.getValue = async (req, res) => {

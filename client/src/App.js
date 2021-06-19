@@ -8,6 +8,8 @@ import Main from './components/Main/main';
 import Header from './components/Header/header';
 import Profile from './components/Profile/profile';
 import Ticker from './components/Ticker/ticker';
+import Comments from './components/Comments/Comments';
+
 
 import { UserProvider } from './context/userContext';
 
@@ -40,9 +42,10 @@ const App = () => {
         <Header />
         <Switch>
           <Route exact path="/" component={Main} />
-          <Route path="/ticker" component={Ticker} />
+          <Route exact path="/ticker/:id" component={Ticker} />
+          <Route exact path="/ticker/:id/comments/:post_id" component={Comments} />
           {loginRoute}
-          <Route path="/" component={Main} />
+          {/* <Route path="/" component={Main} /> */}
         </Switch>  
       </BrowserRouter>
     </UserProvider>

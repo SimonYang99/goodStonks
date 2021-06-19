@@ -16,9 +16,9 @@ function getCommentsCount(post_id) {
 
 }
 function getPost(post_id) {
-    let query = `SELECT FROM posts WHERE post_id = '${post_id}'`;
+    let query = `SELECT * FROM posts WHERE post_id = '${post_id}'`;
     post =  db.query(query);
-    query = `SELECT FROM comments WHERE post_id = '${post_id}' ORDER BY comment_date DESC`;
+    query = `SELECT * FROM comments WHERE post_id = '${post_id}' ORDER BY comment_date DESC`;
     comments =  db.query(query);
     return [post,comments]
 }
@@ -40,8 +40,10 @@ function addComment(commentDetails) {
      + commentDetails.username + "', '"
      + "GETDATE()" + "', '"
      + commentDetails.commentText + "');";
-
     db.execute(query);
+    query = `UPDATE Posts SET comment_count = comment_count + 1 WHERE post_id = ${commentDetails.postId}`
+    db.execute(query);
+
 }
 
 module.exports = {

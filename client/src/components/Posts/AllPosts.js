@@ -24,6 +24,12 @@ const AllPosts = (props) => {
       setPosts({data:json})
     })
   };
+  // fetchAllPosts()
+  // if(props.ticker == undefined){
+  //   fetchAllPosts()
+  // }else{
+  //   fetchTickerPosts(props.ticker)
+  // }
 
   useEffect(() => {
     if(props.ticker == undefined){
@@ -44,7 +50,7 @@ const AllPosts = (props) => {
           poster={val.username} 
           postBody={val.post_text} 
           date={val.post_date} 
-          commentCount={val.commentCount}
+          commentCount={val.comment_count}
           />
         )}
     </>
