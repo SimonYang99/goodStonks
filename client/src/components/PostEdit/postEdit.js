@@ -45,6 +45,8 @@ const PostEdit = ({symbol, cancel}) => {
     let todo = {
         postTitle: info.title,
         postText: info.body,
+        ticker: "MSFT",
+        username: "yoyoyo",
         completed: false
     };
   
