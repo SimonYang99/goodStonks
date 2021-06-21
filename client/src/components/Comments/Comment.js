@@ -14,7 +14,6 @@ const comment = ({
   poster,
   postBody,
   date,
-  commentCount
 }) => {
   return ( 
     <div className="card" style={style.cardBody}>
@@ -23,7 +22,6 @@ const comment = ({
         <h6 className="card-subtitle mb-2 text-muted">By: {poster}</h6>
         <p className="card-text">{postBody}</p>
         <small className="card-text">{date}</small><br></br>
-        <a href="#" className="card-link">Comments({commentCount})</a>
       </div>
     </div>
    );

@@ -46,6 +46,7 @@ const AllPosts = (props) => {
       {posts.data.map((val, key) => 
         <Post 
           key={key} 
+          id={val.post_id}
           title={val.post_title} 
           poster={val.username} 
           postBody={val.post_text} 
