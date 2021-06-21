@@ -9,13 +9,13 @@ const Comments = (props) => {
     data: {
       "post":{
         "comment_count": 0,
-        "post_date": "test",
+        "post_date": "",
         "post_id": 1,
-        "post_text": "test",
-        "post_title": "test",
-        "ticker": "yo",
+        "post_text": "",
+        "post_title": "",
+        "ticker": "",
         "upvote": 0,
-        "username": "user",
+        "username": "",
       },
       "comments":[]
     
@@ -45,8 +45,12 @@ const Comments = (props) => {
   let leftSide = (!newPost) 
   ? (
   <>
-    <h2 style={{textAlign:'center'}}>{postComments.data.post.post_title}</h2>
-    <p style={{textAlign:'center'}}>{postComments.data.post.post_text}</p>
+    <Comment 
+      title={postComments.data.post.post_title}
+      poster={postComments.data.post.username}
+      postBody={postComments.data.post.post_text}
+      date={postComments.data.post.post_date}
+    />
     {postComments.data.comments.map((val, key) => 
     <Comment
       key={key} 
